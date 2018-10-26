@@ -35,7 +35,7 @@ float pi = M_PI/180;
 void drawSphere(GLfloat radius, GLint slices, GLint stacks, bool show_axis){
 	float phi, theta;
 
-	for(theta = 0; theta < 180; theta += (180 / stacks)){
+	for(theta = 0; theta <= 180; theta += (180 / stacks)){
 		float sphere_coordinate[4][3] = {0.0f, 0.0f, 0.0f};
 		for(phi = 0; phi < 360; phi += (360 / slices)){
 			sphere_coordinate[0][0] = radius * sin(theta * pi) * cos(phi * pi);
@@ -159,7 +159,7 @@ void display()
 	//sun
 	glPushMatrix();
 	glColor3f(1.0f, 0.3f, 0.0f);
-	glRotatef(moon_rotation, 0.0f, 1.0f, 0.0f);
+	//glRotatef(moon_rotation, 0.0f, 1.0f, 0.0f);
 	drawSphere(6 * r, other_slices, other_stacks, false);
 	glPopMatrix();
 	//system("pause");
